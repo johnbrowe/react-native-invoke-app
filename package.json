@@ -5,13 +5,13 @@
   "license": "MIT",
   "main": "index.js",
   "author": {
-    "name": "Ganapathy S",
-    "email": "vignesh@syncwithtech.org",
-    "url": "https://www.syncwithtech.org"
+    "name": "John Høj Andreassen",
+    "email": "john.andreassen83@gmail.com",
+    "url": "https://www.jha.works"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/vicke4/react-native-invoke-app.git"
+    "url": "https://github.com/johnbrowe/react-native-invoke-app.git"
   },
   "keywords": [
     "react-native",
@@ -20,8 +20,8 @@
     "invoke app"
   ],
   "bugs": {
-    "url": "https://github.com/vicke4/react-native-invoke-app/issues",
-    "email": "vignesh@syncwithtech.org"
+    "url": "https://github.com/johnbrowe/react-native-invoke-app.git",
+    "email": "john.andreassen83@gmail.com"
   },
   "peerDependencies": {
     "react-native": "^0.41.2"

@@ -38,7 +38,6 @@ public class RNInvokeApp extends ReactContextBaseJavaModule {
     @ReactMethod
     public void invokeApp(ReadableMap params) {
         ReadableMap data = params.hasKey("data") ? params.getMap("data") : null;
-
         if (data != null) {
             bundle = Arguments.toBundle(data);
         }
@@ -51,23 +50,20 @@ public class RNInvokeApp extends ReactContextBaseJavaModule {
             Class<?> activityClass = Class.forName(className);
             Intent activityIntent = new Intent(reactContext, activityClass);
 
-            activityIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            activityIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             reactContext.startActivity(activityIntent);
-        } catch(Exception e) {
+        } catch (Exception e) {
             Log.e(LOG_TAG, "Class not found", e);
             return;
         }
 
-        if (isAppOnForeground(reactContext)) {
-            sendEvent();
-        }
+        sendEvent();
     }
 
     public static void sendEvent() {
         if (bundle != null) {
-            reactContext
-                .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-                .emit("appInvoked", Arguments.fromBundle(bundle));
+            reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit("appInvoked",
+                    Arguments.fromBundle(bundle));
             bundle = null;
         }
     }
